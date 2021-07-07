@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create(
 {
+	white_txt:
+	{
+		color: '#FFF'
+	},
 	main_container:
 	{
 		flex: 1,

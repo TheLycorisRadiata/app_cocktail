@@ -1,12 +1,49 @@
 import React, {useState, useEffect} from 'react';
-import {View, ScrollView, Text, Image} from 'react-native';
+import {Alert, View, ScrollView, Text, Image} from 'react-native';
 import {Accelerometer} from 'expo-sensors';
 import style from '../assets/style/General.style';
+
+const THRESHOLD = 500;
+
+class ShakeEventExpo
+{
+	static addListener(handler)
+	{
+		let last_x, last_y, last_z;
+		let last_update = 0;
+
+		Accelerometer.addListener(accelerometer_data => 
+		{
+			let { x, y, z } = accelerometer_data;
+			let curr_time = Date.now();
+
+			if ((curr_time - last_update) > 100)
+			{
+				let diff_time = (curr_time - last_update);
+				last_update = curr_time;
+				let speed = Math.abs(x + y + z - last_x - last_y - last_z) / diff_time * 10000;
+
+				if (speed > THRESHOLD)
+				{
+					handler();
+				}
+
+				last_x = x;
+				last_y = y;
+				last_z = z;
+			}
+		});
+	}
+
+	static removeListener()
+	{
+		Accelerometer.removeAllListeners()
+	}
+};
 
 const NotAnEasterEgg = () => 
 {
 	const [is_easter_egg_found, set_is_easter_egg_found] = useState(false);
-	const [data, set_data] = useState({ x: 0, y: 0, z: 0 });
 
 	const cocktail = 
 	{
@@ -24,34 +61,25 @@ const NotAnEasterEgg = () =>
 
 	useEffect(() => 
 	{
-		Accelerometer.addListener(accelerometer_data => 
+		ShakeEventExpo.addListener(() => 
 		{
-        		set_data(accelerometer_data);
-	      	});
-
-		Accelerometer.setUpdateInterval(1000);
+			Alert.alert('Shaken,', 'Not stirred.');
+			set_is_easter_egg_found(true);
+			ShakeEventExpo.removeListener();
+		});
 	}, []);
 
-	useEffect(() => 
-	{
-		if (data.x >= 0.7 || data.x >= -0.7)
-			set_is_easter_egg_found(true);
-	}, [data]);
-
 	return (
-		<View style={{ flex: 1, backgroundColor: '#F4A261', padding: 50 }}>
+		<View style={{ flex: 1, backgroundColor: '#000', padding: 50 }}>
 			<ScrollView style={style.cocktail_container}>
-				<Text>x: {data.x}</Text>
-				<Text>y: {data.y}</Text>
-				<Text>z: {data.z}</Text>
-				{!is_easter_egg_found ? <Text>I told you there's no easter egg.</Text> :
+				{!is_easter_egg_found ? <Text style={style.white_txt}>I told you there's no easter egg.</Text> :
 
 				<View style={style.cocktail_content}>
 					<Image style={style.img} source={{ uri: cocktail.strDrinkThumb }} />
-					<Text style={[style.cocktail_name, style.cocktail_detail1]}>{cocktail.strDrink}</Text>
-					<Text style={style.cocktail_detail1}>Glass: {cocktail.strGlass}</Text>
-					{cocktail.ingredients.map((element, index) => <Text key={index}>{element}</Text>)}
-					<Text style={style.cocktail_detail2}>{cocktail.strInstructions}</Text>
+					<Text style={[style.cocktail_name, style.cocktail_detail1, style.white_txt]}>{cocktail.strDrink}</Text>
+					<Text style={[style.cocktail_detail1, style.white_txt]}>Glass: {cocktail.strGlass}</Text>
+					{cocktail.ingredients.map((element, index) => <Text key={index} style={style.white_txt}>{element}</Text>)}
+					<Text style={[style.cocktail_detail2, style.white_txt]}>{cocktail.strInstructions}</Text>
 				</View>}
 			</ScrollView>
 		</View>

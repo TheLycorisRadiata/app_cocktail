@@ -12,35 +12,35 @@ const RandomCocktail = () =>
 		const list_ingredients = [];
 
 		if (cocktail_data.strMeasure1 !== null)
-			list_ingredients.push(cocktail_data.strMeasure1 + ' ' + cocktail_data.strIngredient1);
+			list_ingredients.push(cocktail_data.strMeasure1 + cocktail_data.strIngredient1);
 		if (cocktail_data.strMeasure2 !== null)
-			list_ingredients.push(cocktail_data.strMeasure2 + ' ' + cocktail_data.strIngredient2);
+			list_ingredients.push(cocktail_data.strMeasure2 + cocktail_data.strIngredient2);
 		if (cocktail_data.strMeasure3 !== null)
-			list_ingredients.push(cocktail_data.strMeasure3 + ' ' + cocktail_data.strIngredient3);
+			list_ingredients.push(cocktail_data.strMeasure3 + cocktail_data.strIngredient3);
 		if (cocktail_data.strMeasure4 !== null)
-			list_ingredients.push(cocktail_data.strMeasure4 + ' ' + cocktail_data.strIngredient4);
+			list_ingredients.push(cocktail_data.strMeasure4 + cocktail_data.strIngredient4);
 		if (cocktail_data.strMeasure5 !== null)
-			list_ingredients.push(cocktail_data.strMeasure5 + ' ' + cocktail_data.strIngredient5);
+			list_ingredients.push(cocktail_data.strMeasure5 + cocktail_data.strIngredient5);
 		if (cocktail_data.strMeasure6 !== null)
-			list_ingredients.push(cocktail_data.strMeasure6 + ' ' + cocktail_data.strIngredient6);
+			list_ingredients.push(cocktail_data.strMeasure6 + cocktail_data.strIngredient6);
 		if (cocktail_data.strMeasure7 !== null)
-			list_ingredients.push(cocktail_data.strMeasure7 + ' ' + cocktail_data.strIngredient7);
+			list_ingredients.push(cocktail_data.strMeasure7 + cocktail_data.strIngredient7);
 		if (cocktail_data.strMeasure8 !== null)
-			list_ingredients.push(cocktail_data.strMeasure8 + ' ' + cocktail_data.strIngredient8);
+			list_ingredients.push(cocktail_data.strMeasure8 + cocktail_data.strIngredient8);
 		if (cocktail_data.strMeasure9 !== null)
-			list_ingredients.push(cocktail_data.strMeasure9 + ' ' + cocktail_data.strIngredient9);
+			list_ingredients.push(cocktail_data.strMeasure9 + cocktail_data.strIngredient9);
 		if (cocktail_data.strMeasure10 !== null)
-			list_ingredients.push(cocktail_data.strMeasure10 + ' ' + cocktail_data.strIngredient10);
+			list_ingredients.push(cocktail_data.strMeasure10 + cocktail_data.strIngredient10);
 		if (cocktail_data.strMeasure11 !== null)
-			list_ingredients.push(cocktail_data.strMeasure11 + ' ' + cocktail_data.strIngredient11);
+			list_ingredients.push(cocktail_data.strMeasure11 + cocktail_data.strIngredient11);
 		if (cocktail_data.strMeasure12 !== null)
-			list_ingredients.push(cocktail_data.strMeasure12 + ' ' + cocktail_data.strIngredient12);
+			list_ingredients.push(cocktail_data.strMeasure12 + cocktail_data.strIngredient12);
 		if (cocktail_data.strMeasure13 !== null)
-			list_ingredients.push(cocktail_data.strMeasure13 + ' ' + cocktail_data.strIngredient13);
+			list_ingredients.push(cocktail_data.strMeasure13 + cocktail_data.strIngredient13);
 		if (cocktail_data.strMeasure14 !== null)
-			list_ingredients.push(cocktail_data.strMeasure14 + ' ' + cocktail_data.strIngredient14);
+			list_ingredients.push(cocktail_data.strMeasure14 + cocktail_data.strIngredient14);
 		if (cocktail_data.strMeasure15 !== null)
-			list_ingredients.push(cocktail_data.strMeasure15 + ' ' + cocktail_data.strIngredient15);
+			list_ingredients.push(cocktail_data.strMeasure15 + cocktail_data.strIngredient15);
 
 		return list_ingredients;
 	};
