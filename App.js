@@ -7,7 +7,7 @@ import NotAnEasterEgg from './views/NotAnEasterEgg';
 
 const Tabs = createBottomTabNavigator();
 
-function App()
+const App = () => 
 {
     return (
         <NavigationContainer>
@@ -28,7 +28,7 @@ function App()
             </Tabs.Navigator>
         </NavigationContainer>
     );
-}
+};
 
 export default App;
 
