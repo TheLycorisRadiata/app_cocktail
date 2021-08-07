@@ -9,26 +9,25 @@ const Tabs = createBottomTabNavigator();
 
 function App()
 {
-	return (
-		<NavigationContainer>
-			<Tabs.Navigator lazy={false} tabBarOptions={{ activeTintColor: '#E5778E', inactiveTintColor: '#000', 
-					activeBackgroundColor: '#EFD777', inactiveBackgroundColor: '#EFD777' }}>
+    return (
+        <NavigationContainer>
+            <Tabs.Navigator lazy={false} tabBarOptions={{ activeTintColor: '#E5778E', inactiveTintColor: '#000', activeBackgroundColor: '#EFD777', inactiveBackgroundColor: '#EFD777' }}>
 
-				<Tabs.Screen name='random' component={RandomCocktail} 
-					options={{ 
-					tabBarLabel: 'Random Cocktail', 
-					tabBarIcon: ({ color, size }) => <FontAwesome5 name={'cocktail'} color={color} size={size} /> }} 
-				/>
+                <Tabs.Screen name='random' component={RandomCocktail} 
+                    options={{ 
+                        tabBarLabel: 'Random Cocktail', 
+                        tabBarIcon: ({ color, size }) => <FontAwesome5 name={'cocktail'} color={color} size={size} /> }} 
+                />
 
-				<Tabs.Screen name='easter' component={NotAnEasterEgg} 
-					options={{ 
-					tabBarLabel: 'Not An Easter Egg', 
-					tabBarIcon: ({ color, size }) => <FontAwesome5 name={'ban'} color={color} size={size} /> }} 
-				/>
+                <Tabs.Screen name='easter' component={NotAnEasterEgg} 
+                    options={{ 
+                        tabBarLabel: 'Not An Easter Egg', 
+                        tabBarIcon: ({ color, size }) => <FontAwesome5 name={'ban'} color={color} size={size} /> }} 
+                />
 
-			</Tabs.Navigator>
-		</NavigationContainer>
-	);
+            </Tabs.Navigator>
+        </NavigationContainer>
+    );
 }
 
 export default App;
