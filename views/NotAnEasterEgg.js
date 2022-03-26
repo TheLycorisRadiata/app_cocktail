@@ -37,7 +37,7 @@ class ShakeEventExpo
     {
         Accelerometer.removeAllListeners()
     }
-};
+}
 
 const NotAnEasterEgg = () => 
 {
